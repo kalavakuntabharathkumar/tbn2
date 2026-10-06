@@ -1,0 +1,8 @@
+services:
+ api:
+  build: {context: ., dockerfile: docker/Dockerfile}
+  ports: ['8000:8000']
+  depends_on: [postgres]
+ postgres:
+  image: postgres:16
+  environment: {POSTGRES_USER: ticketbench, POSTGRES_PASSWORD: ticketbench, POSTGRES_DB: ticketbench}
